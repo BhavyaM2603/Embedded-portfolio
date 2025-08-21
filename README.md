@@ -1,45 +1,107 @@
-# 🛠️ Embedded Systems Project Portfolio
+🔥 Smart Heater Control System (Simulation Project)
 
-Welcome to my embedded systems portfolio!  
-This repository showcases a collection of hands-on projects I've developed using platforms like **ESP32**, **nRF24L01**, and **Mbed OS**, with a focus on **real-time communication**, **sensor data handling**, and **firmware development**.
+Built with: Arduino Uno · DHT22 · C++ · Wokwi Simulator
+Role: Embedded Systems Developer (solo project)
+Goal: Simulate a safe, state-driven heater control system with real-time feedback and fail-safes.
+_________________________________________________________________________________________________________________________________________________
+✅ Project Highlights
 
-Each project demonstrates my understanding of microcontroller programming, protocol integration (UART, SPI, LoRa), and embedded design logic — both in hardware and simulation.
+Real-Time Temperature Monitoring:
+Continuously reads temperature & humidity from a DHT22 sensor.
 
----
+State Machine Control Logic:
+Implements 5 well-defined states:
+IDLE → HEATING → STABILIZING → TARGET REACHED → OVERHEAT
 
-## 🔗 Projects
+Actuator Control:
 
-### ESP32-LoRa microwave sensor node
-- Built a microwave sensor node using ESP32 and LoRa to study signal attenuation in various water conditions.
-- Integrated a custom microwave sensor and fabricated a directional coupler to match LoRa frequency.
-- Analyzed signal strength via RSSI and plotted calibration curves in MATLAB. Capstone project.
+LED = Heater ON/OFF indicator
 
+Buzzer = Overheat alert (triggered at 50 °C)
 
-### MIMO-Communication Arduino + nRF
-- Simulated a basic MIMO-like communication system using dual nRF24L01 transceivers and Arduino UNO.
-- Implemented multi-channel wireless transmission via SPI protocol.
-- Verified data reliability through signal strength testing and range experiments.
+Serial Logging:
+Logs temp, humidity, and current state every 2 seconds.
 
+Tested in Simulation:
+Fully simulated in Wokwi (Wokwi.com), adjustable temperature slider to test all states.
+___________________________________________________________________________________________________________________________________________________________________________
+💡 What I Demonstrated
 
-### MbedOS-Indoor-Monitoring
-- Developed an indoor environment monitoring system using Mbed OS threads and GPIO-based alert logic.
-- Simulated sensor polling (temperature, humidity, air quality) and exported data via UART.
-- Visualized trends in MATLAB using CSV logs to detect threshold crossings.
+Designing and coding embedded control logic from scratch
 
+Working with sensor data, thresholds, and hysteresis
 
-##  Tools & Technologies
-- **Languages:** C, C++, Embedded C
-- **Platforms:** ESP32, Arduino UNO, Mbed OS (Keil Studio Cloud)
-- **Protocols:** UART, SPI, LoRa
-- **Tools:** Arduino IDE, MATLAB, Git, KiCAD (in progress)
+Implementing safety-oriented feedback (visual + audible)
 
+Writing clean, testable Arduino code with state transitions
 
-##  What This Portfolio Reflects
-- Strong understanding of real-time communication in embedded systems  
-- Ability to debug, prototype, and adapt across platforms  
-- Experience working independently and in teams on end-to-end embedded systems  
+Documenting system design clearly for hardware scalability
+__________________________________________________________________________________________________________________________________________________________________________________
+🧠 System Behavior Summary
+Temperature	State	Heater (LED)	Buzzer
+< 39 °C	HEATING	ON	OFF
+39–40 °C	STABILIZING	ON	OFF
+40–49.9 °C	TARGET REACHED	OFF	OFF
+≥ 50 °C	OVERHEAT	OFF	ON
+⚙️ Tools & Stack
 
+Board: Arduino Uno (ATmega328P)
 
-> 📌 Each folder contains a README with  project info and outcomes.
+Sensor: DHT22 (Digital Temp + Humidity)
 
-Thank you for viewing!
+Actuators: LED (GPIO 4), Buzzer (GPIO 5)
+
+Language: Arduino C++
+
+Simulation: Wokwi Online Simulator
+
+Libraries: Adafruit DHT sensor library
+______________________________________________________________________________________________________________________________________________________________________________
+🚀 Try It Yourself
+
+👉 Click to Open Wokwi Simulation: https://wokwi.com/projects/439422033010160641
+
+Press Run
+
+Click on the DHT22 sensor
+
+Use the slider to change temperature and observe:
+
+LED turns ON when heating
+
+Buzzer triggers at overheat
+
+Serial Monitor logs real-time system state
+
+🧭 What's Next (Roadmap)
+
+Port to ESP32 for wireless features (BLE, WiFi)
+
+Add LCD/OLED display for real-time feedback
+
+Implement PID control loop for smooth heating
+
+Store heating profiles in EEPROM
+
+Build a mobile UI for remote control
+
+📁 Repository Structure
+📦 basic-heater-system/
+
+├── sketch.ino     → Core logic (Arduino sketch)
+
+├── diagram.json           → Wiring setup for Wokwi
+
+├── wokwi.toml             → Library dependencies
+
+├── README.md              → You’re here
+
+├── system_design.docx     → Part 1: Design document
+
+└── embedded_implementation.docx → Part 2: Implementation report
+
+🧑‍💻 About Me
+
+I'm an aspiring embedded systems engineer with hands-on experience in building real-time control systems using Arduino, ESP32, and simulation platforms. I enjoy solving hardware-software interfacing problems and turning raw sensor data into real-world control actions.
+
+📫 [Add your email, LinkedIn, or GitHub profile link here]
