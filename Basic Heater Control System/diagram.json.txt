@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "author": "Bhavya Merugu",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -57.3,
+      "left": 369,
+      "attrs": { "temperature": "54.3", "humidity": "32.5" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -99.6,
+      "left": 128.6,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -189.6,
+      "left": 184.2,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "led1:A", "uno:4", "green", [ "v0", "h67.2" ] ],
+    [ "led1:C", "uno:GND.1", "green", [ "v0", "h-28.4" ] ],
+    [ "bz1:1", "uno:GND.1", "green", [ "v0", "h-96" ] ],
+    [ "bz1:2", "uno:5", "green", [ "v19.2", "h-29.2" ] ],
+    [ "dht1:SDA", "uno:2", "green", [ "v57.6", "h-105.5" ] ],
+    [ "dht1:VCC", "uno:5V", "red", [ "v163.2", "h-220.8" ] ],
+    [ "dht1:GND", "uno:GND.2", "black", [ "v153.6", "h-240" ] ]
+  ],
+  "dependencies": {}
+}
